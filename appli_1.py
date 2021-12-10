@@ -18,7 +18,7 @@ param1 = st.sidebar.slider("X",0,50,3)
 # Nous allons avoir besoin de 2 fonctions: L'une pour le téléchargement de la photo du Lego à classifier, 
 # l'autre pour la prédiction (à quelle set appartient ce Lego?)
 
-   ###  Première fonction:  ###
+###  Première fonction:  ###
 def decode_img(img):
   # Convert the compressed string to a 3D uint8 tensor
   img = tf.io.decode_image(img, channels=3)
@@ -39,6 +39,7 @@ def predict_class(model, img):
     image_class = class_names[np.argmax(scores)]
     
     return image_class
+
 def main():
     classifier_model = tf.keras.models.load_model("Xception224_model.h5")
     # st.set_option('deprecation.showfileUploaderEncoding', False)
